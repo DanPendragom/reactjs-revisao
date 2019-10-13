@@ -19,21 +19,36 @@ class App extends Component{
     this.setState({newcontent: e.target.value});
   }
 
+  handlesubmit = e =>{
+    // resetando função do formulario 
+    e.preventDefault();
+    // console.log(this.state.newcontent);
+
+    // recriando array com o novo estado
+    this.setState({revisao: [...this.state.revisao, this.state.newcontent],
+      // resetando input
+      newcontent: ''
+    });
+  }
   render(){
     return(
-      <div>
+      <form onSubmit={this.handlesubmit}>
         <h1>Contéudo para revisar</h1>
         <input
           onChange={this.handleInputChange}
           placeholder="Adicionar novo conteúdo"
           type="text"
+          value={this.state.newcontent}
         />
+        <input type="submit" value="enviar"/>
         <ul>
           {/* Percorrendo o array revisao do estado do componente */}
           {this.state.revisao.map(revisao => <li key={revisao}>{revisao}</li>)}
-        <li>{this.state.newcontent}</li>
+
+          {/* exibindo novo estado no array newcontent */}
+          {/* <li>{this.state.newcontent}</li> */}
         </ul>
-      </div>
+      </form>
     );
   }
 }
