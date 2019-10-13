@@ -34,8 +34,8 @@ class App extends Component {
     }
   }
 
-  handledelete = e => {
-    console.log(this.state.revisao)
+  handledelete = (revisao) => {
+    console.log(revisao)
   }
 
   render() {
@@ -55,7 +55,7 @@ class App extends Component {
           {this.state.revisao.map(revisao => (
             <li key={revisao}>
               {revisao}
-              <button onClick={this.handledelete} type="button">Remove</button>
+              <button onClick={() =>this.handledelete(revisao)} type="button">Remove</button>
             </li>
           ))}
 
