@@ -13,9 +13,12 @@ class App extends Component{
     ]
   }
 
+  //  Toda função escrita dentro da classe, precisa estar no formato arrow function para acessar o "This"
+
   handleInputChange = e => {
-    console.log(e.target.value);
+    this.setState({newcontent: e.target.value});
   }
+
   render(){
     return(
       <div>
@@ -28,6 +31,7 @@ class App extends Component{
         <ul>
           {/* Percorrendo o array revisao do estado do componente */}
           {this.state.revisao.map(revisao => <li key={revisao}>{revisao}</li>)}
+        <li>{this.state.newcontent}</li>
         </ul>
       </div>
     );
