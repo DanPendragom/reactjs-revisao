@@ -13,9 +13,11 @@ class MyList extends Component {
             '',
         ]
     }
+
     handleinputchange = e =>{
         this.setState({newfood: e.target.value});
     }
+
     handlesubmit = e =>{
         e.preventDefault();
         if(document.getElementById('myfood').value != ''){
@@ -24,16 +26,17 @@ class MyList extends Component {
             });
         }
     }
+
     handledelete = (food) =>{
         console.log(food);
-        this.setState({food: this.state.food.filter(f => f !== food)});
+        this.setState({food: this.state.food.filter(f => f != food)});
     }
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <form autoComplete="off" onSubmit={this.handlesubmit} >
-                    <h1>Essa é a minha nova Lista</h1>
+                    <h1>My favorites foods</h1>
                     <div className="enterValue">
                         <input 
                             id="myfood"
