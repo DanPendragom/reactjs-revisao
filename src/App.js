@@ -35,12 +35,15 @@ class App extends Component {
   }
 
   handledelete = (revisao) => {
-    console.log(revisao)
+    // console.log(revisao)
+
+    // Filtrando o estado para retornar toda 'R'evisao => 'r' que for diferente != da revisao recebida como parametro
+    this.setState({revisao: this.state.revisao.filter(r => r !== revisao)});
   }
 
   render() {
     return (
-      <form onSubmit={this.handlesubmit}>
+      <form autoComplete="off" onSubmit={this.handlesubmit}>
         <h1>Contéudo para revisar</h1>
         <input
           id="input"
