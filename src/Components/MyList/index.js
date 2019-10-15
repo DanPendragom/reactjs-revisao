@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Item from './item';
 import './style.css';
 
 class MyList extends Component {
@@ -51,14 +52,7 @@ class MyList extends Component {
                     </div>
                     <ul>
                         {this.state.food.map(food => (
-                        <li key={food}>
-                            {food}
-                            <input 
-                                type="button" 
-                                value="Remover"
-                                onClick={()=> this.handledelete(food)}
-                            />
-                        </li>
+                            <Item food={food} onDelete={() => this.handledelete(food)}/>
                         ))}
                     </ul>
                 </form>
