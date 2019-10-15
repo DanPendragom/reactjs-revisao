@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function Item({food, onDelete}) {
     return (
@@ -14,7 +15,12 @@ function Item({food, onDelete}) {
 }
 
 Item.defaultProps = {
-    food: 'que fome'
-}
+    food: 'que fome',
+};
+
+Item.propTypes = {
+    food: PropTypes.string,
+    onDelete: PropTypes.func,
+};
 
 export default Item;
