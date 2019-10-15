@@ -5,14 +5,25 @@ import './style.css';
 class MyList extends Component {
 
     state = {
-        food: [
-            'Coxinha',
-            'Bolo de chocolate',
-            'Pastel de flanfo'
-        ],
+        food: [],
         newfood: [
             '',
         ]
+    }
+
+    componentDidMount(){
+        const foods = localStorage.getItem('comida');
+        this.setState({food: JSON.parse(foods)})
+    }
+
+    componentWillUnmount(){
+
+    }
+
+    componentDidUpdate(_, prevState){
+        if(prevState !== this.state.food){
+            localStorage.setItem('comida',JSON.stringify(this.state.food));
+        }
     }
 
     handleinputchange = e =>{
