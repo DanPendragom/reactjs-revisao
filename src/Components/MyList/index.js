@@ -11,19 +11,22 @@ class MyList extends Component {
         ]
     }
 
+    // executando ao carregar o componente
     componentDidMount(){
         const foods = localStorage.getItem('comida');
         this.setState({food: JSON.parse(foods)})
     }
-
-    componentWillUnmount(){
-
-    }
-
+    
+    // executado sempre que o estado do componente sofre alteração 
+    // recebe o state anterior (prevState) e a prop (prevProp) como parametro 
     componentDidUpdate(_, prevState){
         if(prevState !== this.state.food){
             localStorage.setItem('comida',JSON.stringify(this.state.food));
         }
+    }
+
+    // executando quando o componente deixa de existir
+    componentWillUnmount(){
     }
 
     handleinputchange = e =>{
