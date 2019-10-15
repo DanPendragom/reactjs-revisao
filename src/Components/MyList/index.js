@@ -52,8 +52,13 @@ class MyList extends Component {
                     </div>
                     <ul>
                         {this.state.food.map(food => (
-                            <Item food={food} onDelete={() => this.handledelete(food)}/>
+                            <Item 
+                                key={food} 
+                                food={food}
+                                onDelete={() => this.handledelete(food)}
+                            />
                         ))}
+                        <Item />
                     </ul>
                 </form>
             </div>

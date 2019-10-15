@@ -2,7 +2,7 @@ import React from "react";
 
 function Item({food, onDelete}) {
     return (
-        <li key={food}>
+        <li>
             {food}
             <input
                 type="button"
@@ -11,6 +11,10 @@ function Item({food, onDelete}) {
             />
         </li>
     );
+}
+
+Item.defaultProps = {
+    food: 'que fome'
 }
 
 export default Item;
